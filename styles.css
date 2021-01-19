@@ -213,6 +213,25 @@ select{
     padding: 5px;
 }
 
+/*****fOOTER*/
+footer{
+    background: orange;
+    color: black;
+    height: min-content;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+}
+
+.redesSociales{
+    display: flex;
+}
+
+.redesSociales > a{
+    margin: 5px;
+}
+
 /************TABLET****************/
 @media all and (min-width: 768px) {
     /**Header**/
