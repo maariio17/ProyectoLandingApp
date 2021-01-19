@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+body{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/*Mobile First*/
+
+/**Header**/
+.header{
+    background: orange;
+    color: black;
+    padding: 5px;
+}
+
+.header a{
+    color: black;
+    text-decoration: none;
+}
+
+.logo-nav-container{
+    text-align: center;
+}
+
+.navigation{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.navigation ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navigation ul li{
+    display: inline-block;
+    /*width: 100%;*/
+}
+
+.navigation ul li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    transition: all 0.4s linear;
+}
+
+.navigation ul li a:hover {
+    background: rgb(192, 125, 2);
+}
+
+.blog{
+    letter-spacing: 15px;
+    font-size: 1.4em;
+}
+
+#buscador a> img{
+    cursor: pointer;
+}
+
+input{
+    border: 1px solid black;
+    font-family: 'Courier New', Courier, monospace;
+    margin-right: 5px;
+    height: 25px;
+    /*width: 80%;*/
+}
+
+select{
+    border: 1px solid black;
+    font-family: 'Courier New', Courier, monospace;
+    margin-right: 5px;
+    height: 25px;
+}
+
+/**Main**/
+.imagenFondo{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.imagenFondo > img{
+    object-fit: cover;
+    width: 100%;
+    height: 50rem;
+}
+
+.informacion{
+    width: 100%;
+    height: 45rem;
+    position: absolute;
+    color: white;
+    font-size: xx-large;
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.informacion > *{
+    left: 50%;
+    vertical-align: center;
+}
+
+.ofertas{
+    border-radius: 5px;
+    background-color: orange;
+    color: black;
+    border: 1px solid black;
+    height: 5vh;
+    width: 20vh;
+    box-shadow: 0px 0px 10px 1px orange;
+}
+
+.formulario{
+    width: 100%;
+    height: min-content;
+    left: 0%;
+    position: relative;
+    top: 30%;
+    display: flex;
+    justify-content: center;
+    background: black;
+}
+
+#formularioRegistro{
+    border: 1px solid orange;
+    background: rgb(0, 0, 0,  0.8);
+    color: white;
+    width: 30rem;
+    height: min-content;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    box-shadow: 0px 0px 10px 1px orange;
+    margin: 20px;
+}
+
+#formularioRegistro > input{
+    margin: 10px 0;
+    width: 100%;
+}
+
+select{
+    margin-bottom: 15px;
+}
+
+#abonos{
+    width: 100%;
+}
+
+.inscribete{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.btnInscribete{
+    border: black;
+    background: orange;
+    height: 30px;
+    width: 20rem;
+    box-shadow: 0px 0px 8px 1px orange;
+}
+
+#formularioRegistro input:nth-child(26){
+    width: min-content;
+    margin-right: 1rem;
+}
+
+.legal{
+    font-size: small;
+}
+
+.informacion > video{
+    margin-top: 50px;
+}
+            /*Servicios*/
+.servicios{
+    display: flex;
+}
+
+#servicio{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    height: min-content;
+    background: black;
+    justify-content: space-around;
+}
+
+.servicio{
+    display: inline;
+    width: 300px;
+    height: 22rem;
+    margin: 1vw;
+    font-size: medium;
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px solid black;
+    text-align: center;
+    background: orange;
+    padding: 5px;
+}
+
+/************TABLET****************/
+@media all and (min-width: 768px) {
+    /**Header**/
+    /*.header{
+        background: yellow;
+    }*/
+
+    .logo-nav-container{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .navigation{
+        justify-content: space-around;
+    }
+
+    .informacion > video{
+        margin-top: 0;
+    }
+}
+
+
+/************DESKTOP****************/
+@media all and (min-width: 1024px) {
+    /**Header**/
+    /*.header{
+        background: red;
+    }*/
+
+    .informacion{
+        width: 50%;
+        top: 15%;
+    }
+
+    .formulario{
+        width: 50%;
+        left: 50%;
+        position: absolute;
+        top: 11%;
+        background: none;
+    }
+
+}
