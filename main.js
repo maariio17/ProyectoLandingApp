@@ -104,21 +104,62 @@ $(document).ready(function(){
     });
 });
 
-function servicios(){
-    let peliculaBuscar = document.getElementById("busqueda").value;
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            // Aquí dentro haces las cosas que quieras hacer con los datos que consigues de la API. Por ejemplo un console.log()
-            //console.log(xhttp.responseText);
-            // Esto te devuelve las cosas como texto plano si no me equivoco, así que tendrías que hacerle un JSON.parse()
-            // También puedes llamar a una función que hayas definido en otro lado y pasarle el xhttp.responseText como argumento
-            pelicula = JSON.parse(xhttp.responseText);
-            borrar();
-            maquetaRespuesta(pelicula);
-            //console.log(pelicula);
-        }
-    };
-    xhttp.open("GET", "https://www.omdbapi.com/?apikey=5f2a0e9a&t="+peliculaBuscar+"", true); // Aquí está puesto un ejemplo de llamada a la API, tienes que poner lo que necesites. En este caso es buscar las pelis que se llamen Titanic
-    xhttp.send(); // Cuando llamas al send se lanza la petición y se ejecuta lo de xhttp.onreadystatechange
+window.onload = function(){
+    servicios();
 }
+
+var respuesta;
+function servicios(){
+    $.ajax({
+        url: 'servtest.json',
+        success: function(respuesta) {
+            console.log(respuesta);
+            var idServicio = $("#servicio");
+            $.each(respuesta.Servicios, function(index, elemento){
+                idServicio.append(
+                    '<div class="servicio">' +
+                        '<img src=' +elemento.Logo+ '>'+
+                        '<h3>' +elemento.Abono + '</h3>' +
+                        '<h1>' +elemento.Precio + '</h1>' +
+                        '<p>' +elemento.Cuota + '</p>' +
+                        '<p>' +elemento.Compromiso + '</p>' +
+                        '<p>' +elemento.Matricula + '</p>' +
+                    '</div>'
+                );
+            });
+        },
+        error: function() {
+            console.log("No se ha podido obtener la información");
+        },
+        timeout: '10000'
+    });
+}
+
+/*function maquetaRespuestaServicio(respuesta){
+    for (i=0; i<=respuesta.length; i++){    
+        let idServicio = document.getElementById("servicio");
+        let divServicio = document.createElement("div");
+        divServicio.setAttribute("class", "servicio");
+
+        let abono = document.createElement("h3");
+        let precio = document.createElement("h1");
+        let cuota = document.createElement("p");
+        let compromiso = document.createElement("p");
+        let matricula = document.createElement("p");
+
+        abono.innerText = servicio.Abono;
+        precio.innerText = servicio.Precio;
+        cuota.innerText = servicio.Cuota;
+        compromiso.innerText = servicio.Compromiso;
+        matricula.innerText = servicio.Matricula;
+
+        divServicio.append(abono);
+        divServicio.append(precio);
+        divServicio.append(cuota);
+        divServicio.append(compromiso);
+        divServicio.append(matricula);
+
+
+        idServicio.appendChild(divServicio);
+    }
+}*/

@@ -1,0 +1,8 @@
+{"Servicios":[{
+    "Abono":"SPAZIO COMPLETA", "Precio":"41,7€", "Logo":"Imagenes/completo.png", "Cuota":"Cuota Individual con acceso en horario completo", "Compromiso":"Sin compromiso de permanencia", "Matricula":"Matricula GRATIS (Plazas Limitadas)"},
+    {"Abono":"SPAZIO MAÑANA", "Precio":"34,7€", "Logo":"Imagenes/medioDia.png", "Cuota":"Cuota Individual con acceso en hasta las 14:00", "Compromiso":"Sin compromiso de permanencia", "Matricula":"Matricula GRATIS (Plazas Limitadas)"},
+    {"Abono":"SPAZIO FAMILIAR", "Precio":"61,9€", "Logo":"Imagenes/family.png", "Cuota":"Cuota para varios integrantes con acceso en horario completo", "Compromiso":"Sin compromiso de permanencia", "Matricula":"Matricula GRATIS (Plazas Limitadas)"},
+    {"Abono":"SPAZIO AMIGOS", "Precio":"75€", "Logo":"Imagenes/amigos.png", "Cuota":"Cuota para varios integrantes con acceso en horario completo", "Compromiso":"Sin compromiso de permanencia", "Matricula":"Matricula GRATIS (Plazas Limitadas)"},
+    {"Abono":"SPAZIO JUVENIL", "Precio":"34,7€", "Logo":"Imagenes/chico.png", "Cuota":"Cuota Individual para personas entre 13 y 15 años con acceso en horario completo", "Compromiso":"Sin compromiso de permanencia", "Matricula":"Matricula GRATIS (Plazas Limitadas)"}],
+"Testimonios":[{}]
+}
