@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto Landing Page</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="index.js"></script>
+    
 </head>
 <body>
     <header class="header">
@@ -32,27 +34,45 @@
         <div class="imagenFondo">
             <img src="Imagenes/fondo.jpg">
             <div class="informacion">
-                <video src="video.mp4" poster="Imagenes/Video.jpg" controls autoplay width="500rem" height="500rem"></video>
+                <video src="video.mp4" poster="Imagenes/Video.jpg" controls autoplay muted width="500rem" height="500rem"></video>
                 <p> THE BEST PLACE FOR YOUR FITNESS</p>
                 <button class="ofertas">Ver Ofertas</button>
             </div>
             <div class="formulario">
                 <form id="formularioRegistro">
                     <label>Nombre</label><br>
-                    <input type="text" name="nombre" placeholder="Nombre"><br>
+                    <input type="text" id="itNombre" name="nombre" placeholder="Nombre">
+                    <div id="mensaje1" class="errores"><img src="Imagenes/close.png"></div>
+                    <div id="mensaje2" class="errores"><img src="Imagenes/check.png"></div>
+                    <br>
                     <label>Apellidos</label><br>
-                    <input type="text" name="apellidos" placeholder="Apellidos"><br>
+                    <input type="text" id="itApellidos" name="apellidos" placeholder="Apellidos" disabled>
+                    <div id="mensaje3" class="errores"><img src="Imagenes/close.png"></div>
+                    <div id="mensaje4" class="errores"><img src="Imagenes/check.png"></div>
+                    <br>
                     <label>DNI</label><br>
-                    <input type="text" name="dni" placeholder="12345678A" pattern="[0-9]{8}[A-Za-z]{1}" title="Debe poner 8 números y una letra" /><br>
+                    <input type="text" id="itDNI" name="dni" placeholder="12345678A" title="Debe poner 8 números y una letra" disabled/>
+                    <div id="mensaje5" class="errores"><img src="Imagenes/close.png"></div>
+                    <div id="mensaje6" class="errores"><img src="Imagenes/check.png"></div>
+                    <br>
                     <label>Dirección</label><br>
-                    <input type="text" name="direccion" placeholder="Gran Via, 32"><br>
+                    <input type="text" id="itDireccion" name="direccion" placeholder="Gran Via, 32" disabled>
+                    <div id="mensaje7" class="errores"><img src="Imagenes/close.png"></div>
+                    <div id="mensaje8" class="errores"><img src="Imagenes/check.png"></div>
+                    <br>
                     <label>Teléfono</label><br>
-                    <input type="tel"  name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" placeholder="673 461 176"><br>
+                    <input type="tel" id="itTelefono"  name="phone" placeholder="673 46 11 76" disabled>
+                    <div id="mensaje9" class="errores"><img src="Imagenes/close.png"></div>
+                    <div id="mensaje10" class="errores"><img src="Imagenes/check.png"></div>
+                    <br>
                     <label>Correo Electrónico</label><br>
-                    <input type="email" name="email" placeholder="tucorreo@gmail.com"><br>
+                    <input type="email" id="itCorreo" name="email" placeholder="tucorreo@gmail.com" disabled required>
+                    <div id="mensaje11" class="errores"><img src="Imagenes/close.png"></div>
+                    <div id="mensaje12" class="errores"><img src="Imagenes/check.png"></div>
+                    <br>
                     <div id="abonos">
-                        <select id="abono" name="abono">
-                            <option value="none">Elige tu abono</option>
+                        <select id="abono" name="abono" disabled>
+                            <option value="">Elige tu abono</option>
                             <option value="XXS">Spazio Completa</option>
                             <option value="XS">Spazio Mañana</option>
                             <option value="S">Spazio Familiar</option>
@@ -60,10 +80,12 @@
                             <option value="L">Spazio Juvenil</option>
                         </select>
                     </div>
-                    <input id="checkbox" type="checkbox"><p>Acepto</p><br>
+                    <input id="checkbox" type="checkbox"><p>Acepto</p>
+                    <div id="mensaje13"class="errores">(Debes aceptar la politica y terminos de seguridad)</div>
+                    <br>
                     <p class="legal">En cumplimiento de la Ley Orgánica 15/1999 de 13 de Diciembre, SPAZIO FITNESS GRANADA le informa que sus datos de carácter personal, quedarán incluidos en un fichero de datos, denominado INTERESADOS, titularidad de esta empresa, cuya finalidad es la gestión de los datos de las personas interesadas en nuestros servicios. Del mismo modo nos autoriza a enviarle información comercial, ofertas y promociones relacionadas con nuestra actividad a través de cualquier medio impreso o electrónico, incluidos correo electrónico, teléfono, SMS, a los efectos del art. 21 de la Ley 34/2002 de 11 de Julio de Servicios de la Sociedad de la Información y Comercio Electrónico; lo que usted consiente al firmar el presente formulario. Si lo desea puede ejercitar por escrito, sus derechos de ACCESO, RECTIFICACIÓN, CANCELACIÓN Y OPOSICIÓN, previstos en la Ley 15/1999, a SPAZIO FOOD, S.L. en la CL Aquarius nº 1, C.P. 18213 de JUN (GRANADA) acompañando fotocopia de su D.N.I. o dirigiéndose a la dirección de e-mail info@spaziofitness.net</p>
                     <div class="inscribete">
-                        <button class="btnInscribete">Inscribete</button>
+                        <input class="btnInscribete" type="submit" value="Inscribete">
                     </div>
                 </form>
             </div>
@@ -119,3 +141,6 @@
     </footer>
 </body>
 </html>
+
+<!--pattern="[0-9]{8}[A-Za-z]{1}"
+pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"-->

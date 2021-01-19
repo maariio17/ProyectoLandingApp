@@ -137,13 +137,21 @@ select{
     margin: 20px;
 }
 
-#formularioRegistro > input{
+#itNombre, #itApellidos, #itDNI, #itDireccion, #itTelefono, #itCorreo{
     margin: 10px 0;
-    width: 100%;
+    width: 93%;
+    border: 2px solid;
+}
+
+.errores{
+    padding-top: 15px;
+    margin-left: 5px;
+    display: none;
 }
 
 select{
     margin-bottom: 15px;
+    border: 2px solid;
 }
 
 #abonos{
@@ -164,7 +172,7 @@ select{
     box-shadow: 0px 0px 8px 1px orange;
 }
 
-#formularioRegistro input:nth-child(26){
+.checked{
     width: min-content;
     margin-right: 1rem;
 }
