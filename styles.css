@@ -9,7 +9,7 @@ body{
 
 /**Header**/
 .header{
-    background: yellow;
+    background: orange;
     color: black;
     padding: 5px;
 }
@@ -145,7 +145,7 @@ select{
 
 .errores{
     padding-top: 15px;
-    margin-left: 5px;
+    margin-left: 2px;
     display: none;
 }
 
