@@ -9,7 +9,7 @@ body{
 
 /**Header**/
 .header{
-    background: yellow;
+    background: orange;
     color: black;
     padding: 5px;
 }
@@ -145,7 +145,7 @@ select{
 
 .errores{
     padding-top: 15px;
-    margin-left: 0px;
+    margin-left: 5px;
     display: none;
 }
 
@@ -232,6 +232,8 @@ select{
 
     .informacion > video{
         margin-top: 0;
+        width: 500px;
+        height: 500px;
     }
 }
 
