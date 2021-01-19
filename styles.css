@@ -183,6 +183,8 @@ select{
 
 .informacion > video{
     margin-top: 50px;
+    width: 400px;
+    height: 400px;
 }
             /*Servicios*/
 .servicios{
