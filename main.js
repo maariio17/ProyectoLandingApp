@@ -148,6 +148,27 @@ $(function () {
             $(".servicios").slideDown("slow");  
         }
     });
+
+    //Cambiar Vista Testimonios
+    var vista = 0
+    $("#vista").click( function(){
+        if (vista == 0){
+            $(".testimonio").css("width", "100%");
+            $(".testimonio").css("height", "min-content");
+            $(".testimonio").css("display", "flex");
+            $(".testimonio").css("flex-wrap", "wrap");
+            $(".testimonio").css("justify-content", "space-around");
+            $(".testimonio").css("align-items", "center");
+            $(".comentario").css("width", "50%");
+            vista = 1;
+        } else{
+            $(".testimonio").css("width", "300px");
+            $(".testimonio").css("height", "30rem");
+            $(".testimonio").css("display", "inline");
+            $(".comentario").css("width", "auto");
+            vista = 0;
+        }
+    });
 });
 
 let arrTestimonios=[]
@@ -158,7 +179,7 @@ let fTestimonios=$.ajax({
             const article=$('<div>').attr("class", "testimonio");
             const img=$('<img>').attr('src',el.ImagenCliente);
             const name=$('<h2>').text(el.NombreCliente);
-            const text=$('<p>').text(el.Comentario);
+            const text=$('<p>').text(el.Comentario).attr("class", "comentario");
             const date=$('<p>').text(el.Fecha).attr('style','text-align:center');
             let art= $(article)
             .append(img)
@@ -166,7 +187,7 @@ let fTestimonios=$.ajax({
             .append(date)
             .append(text);
             arrTestimonios.push(article);
-            console.dir(article);
+            //console.dir(article);
         });
         
         function testimonioAleatorio(){
@@ -174,10 +195,11 @@ let fTestimonios=$.ajax({
             for (let i = 0; i < 3; i++) {
                 let random= Math.floor( Math.random() * (arrTestimonios.length));
                 randomTestimonios.push(random);
+                console.log(random);
                 
             }
             for (let i = 0; i < randomTestimonios.length; i++) {
-                console.log(i);
+                //console.log(i);
                 $('#testimonio').append(arrTestimonios[randomTestimonios[i]]);
             }
         }

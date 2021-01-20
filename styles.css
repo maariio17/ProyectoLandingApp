@@ -283,6 +283,10 @@ select{
     box-shadow: 0px 0px 10px 1px black;
   }
 
+  .vista{
+      width: 100%;
+  }
+
 /*****fOOTER*/
 footer{
     background: black;
@@ -292,6 +296,10 @@ footer{
     justify-content: space-around;
     align-items: center;
     padding: 15px;
+}
+
+.comentario{
+    width: 100%;
 }
 
 .redesSociales{
@@ -305,6 +313,9 @@ footer{
 /************TABLET****************/
 @media all and (min-width: 768px) {
     /**Header**/
+    .header{
+        background: red;
+    }
     .logo-nav-container{
         display: flex;
         justify-content: space-around;
@@ -320,12 +331,24 @@ footer{
         width: 500px;
         height: 500px;
     }
+
+    .vista{
+        width: auto;
+    }
+    
+    .comentario{
+        width: auto;
+    }
 }
 
 
 /************DESKTOP****************/
 @media all and (min-width: 1024px) {
     /**Header**/
+    .header{
+        background: yellow;
+    }
+
     .informacion{
         width: 50%;
         top: 15%;
