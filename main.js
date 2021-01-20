@@ -104,16 +104,12 @@ $(document).ready(function(){
     });
 });
 
-window.onload = function(){
-    servicios();
-}
-
 var respuesta;
-function servicios(){
+let servicios=
     $.ajax({
         url: 'servtest.json',
         success: function(respuesta) {
-            console.log(respuesta);
+            //console.log(respuesta);
             var idServicio = $("#servicio");
             $.each(respuesta.Servicios, function(index, elemento){
                 idServicio.append(
@@ -133,33 +129,60 @@ function servicios(){
         },
         timeout: '10000'
     });
-}
 
-/*function maquetaRespuestaServicio(respuesta){
-    for (i=0; i<=respuesta.length; i++){    
-        let idServicio = document.getElementById("servicio");
-        let divServicio = document.createElement("div");
-        divServicio.setAttribute("class", "servicio");
+$(function () {
+    //Boton ScrollTop
+    $("#subir").click( function(){
+        console.log("esto funciona");
+        $("html").animate( {scrollTop: 0}, 3000)
+    });
 
-        let abono = document.createElement("h3");
-        let precio = document.createElement("h1");
-        let cuota = document.createElement("p");
-        let compromiso = document.createElement("p");
-        let matricula = document.createElement("p");
+    $(".ofertas").click( function(){
+        $(window).scrollTop(400);
+    });
 
-        abono.innerText = servicio.Abono;
-        precio.innerText = servicio.Precio;
-        cuota.innerText = servicio.Cuota;
-        compromiso.innerText = servicio.Compromiso;
-        matricula.innerText = servicio.Matricula;
+    //Animacion div Servicios
+    $(window).scroll(function () {
+        if($(window).scrollTop() >= 750 || $(window).scrollTop() <= 900){
+            //console.log("Esto si funciona");
+            $(".servicios").slideDown("slow");  
+        }
+    });
+});
 
-        divServicio.append(abono);
-        divServicio.append(precio);
-        divServicio.append(cuota);
-        divServicio.append(compromiso);
-        divServicio.append(matricula);
-
-
-        idServicio.appendChild(divServicio);
+let arrTestimonios=[]
+let fTestimonios=$.ajax({
+    url: "servtest.json",
+    success: function (response) {
+        //console.log(respuesta);
+        var idTestimonio = $("#testimonio");
+        $.each(response.Testimonios, function (index, elemento) { 
+            idTestimonio.append(
+                '<div class="testimonio">' +
+                    '<img src=' +elemento.ImagenCliente+ '>'+
+                    '<h2>' +elemento.NombreCliente + '</h2>' +
+                    '<p>' +elemento.Comentario + '<p>' +
+                    '<p>' +elemento.Fecha + '</p>' +
+                '</div>'
+            );
+            arrTestimonios.push(idTestimonio);
+            //console.log(arrTestimonios);
+        });
+        function testimonioAleatorio(){
+            let randomTestimonios=[];
+            for (let i = 0; i < 3; i++) {
+                let random= Math.floor( Math.random() * (arrTestimonios.length));
+                randomTestimonios.push(random);
+            }
+            console.dir(randomTestimonios);
+            for (let i = 0; i < randomTestimonios.length; i++) {
+                console.log(i);
+                $('#testimonio').prepend(arrTestimonios[randomTestimonios[i]]);
+            }
+        }
+        testimonioAleatorio();
+        
+    },error: function() {
+        console.error("No se ha podido obtener la información");
     }
-}*/
+});

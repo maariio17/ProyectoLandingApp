@@ -3,6 +3,7 @@
 body{
     box-sizing: border-box;
     margin: 0;
+    background-color: orange;
 }
 
 /*Mobile First*/
@@ -84,7 +85,7 @@ select{
 .imagenFondo > img{
     object-fit: cover;
     width: 100%;
-    height: 50rem;
+    height: 52rem;
 }
 
 .informacion{
@@ -188,7 +189,7 @@ select{
 }
             /*Servicios*/
 .servicios{
-    display: flex;
+    display: none;
 }
 
 #servicio{
@@ -213,9 +214,67 @@ select{
     padding: 5px;
 }
 
+.testimonios{
+    color: white;
+    background-color: orange;
+    margin: 0;
+    text-align: center;
+}
+
+#testimonio{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    height: min-content;
+    background: orange;
+    justify-content: space-evenly;
+}
+
+.testimonio{
+    display: inline;
+    width: 300px;
+    height: 30rem;
+    margin: 1vw;
+    font-size: medium;
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px solid black;
+    text-align: center;
+    background: black;
+    padding: 5px;
+    color: white;
+}
+
+/*******SCROLL TOP********/
+#subir{
+    width:60px;
+    height:60px;
+    border-radius:100%;
+    background:white;
+    right:0;
+    bottom:0;
+    position:fixed;
+    margin-right:16px;
+    margin-bottom:16px;
+    border:none;
+    outline:none;
+    color:orange;
+    font-size:36px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition:.3s;  
+  }
+  span{
+    transition:.5s;  
+  }
+  #subir:hover span{
+    transform:rotate(360deg);
+  }
+  #subir:active{
+    transform:scale(1.1);
+  }
+
 /*****fOOTER*/
 footer{
-    background: orange;
+    background: black;
     color: black;
     height: min-content;
     display: flex;
@@ -235,10 +294,6 @@ footer{
 /************TABLET****************/
 @media all and (min-width: 768px) {
     /**Header**/
-    /*.header{
-        background: yellow;
-    }*/
-
     .logo-nav-container{
         display: flex;
         justify-content: space-around;
@@ -260,10 +315,6 @@ footer{
 /************DESKTOP****************/
 @media all and (min-width: 1024px) {
     /**Header**/
-    /*.header{
-        background: red;
-    }*/
-
     .informacion{
         width: 50%;
         top: 15%;

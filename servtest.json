@@ -4,5 +4,10 @@
     {"Abono":"SPAZIO FAMILIAR", "Precio":"61,9€", "Logo":"Imagenes/family.png", "Cuota":"Cuota para varios integrantes con acceso en horario completo", "Compromiso":"Sin compromiso de permanencia", "Matricula":"Matricula GRATIS (Plazas Limitadas)"},
     {"Abono":"SPAZIO AMIGOS", "Precio":"75€", "Logo":"Imagenes/amigos.png", "Cuota":"Cuota para varios integrantes con acceso en horario completo", "Compromiso":"Sin compromiso de permanencia", "Matricula":"Matricula GRATIS (Plazas Limitadas)"},
     {"Abono":"SPAZIO JUVENIL", "Precio":"34,7€", "Logo":"Imagenes/chico.png", "Cuota":"Cuota Individual para personas entre 13 y 15 años con acceso en horario completo", "Compromiso":"Sin compromiso de permanencia", "Matricula":"Matricula GRATIS (Plazas Limitadas)"}],
-"Testimonios":[{}]
+"Testimonios":[{
+    "ImagenCliente":"Imagenes/cliente1.png", "NombreCliente": "Eugenia Alvarez", "Comentario": "Es un sitio genial para hacer ejercicio! Las chicas de recepción son muy simpáticas y te ayudan con cualquier duda, y los monitores Pilar y Dani atentos a cualquier duda!!", "Fecha": "20/01/2021"},
+    {"ImagenCliente":"Imagenes/cliente2.png", "NombreCliente": "Francisco Javier", "Comentario": "Buen gimnasio, me encanta que no esté masificado como otros, se puede entrenar sin tener que estar esquivando gente y haciendo colas... personal amable. Maquinaria más que suficiente.", "Fecha": "20/01/2021"},
+    {"ImagenCliente":"Imagenes/cliente3.png", "NombreCliente": "Francisco Martinez", "Comentario": "Buen gimnasio, muy grande y completo, con gran cantidad de actividades. El precio no es económico, pero similar al precio de este tipo de gimnasios. La localización no es del todo buena, ya que se encuentra fuera de la ciudad. A unos 10 minutos en coche. Lo mejor sin duda es el personal y las instalaciones. Destacar al monitor Dani, siempre dispuesto a ayudar con una sonrisa.", "Fecha": "20/01/2021"},
+    {"ImagenCliente":"Imagenes/cliente4.png", "NombreCliente": "Ramón Pozo", "Comentario": "Es uno de los mejores gimnasios de Granada. Buenas instalaciones trato agradable y profesional. No es muy caro.", "Fecha": "19/01/2021"}
+]
 }
