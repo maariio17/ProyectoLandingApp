@@ -154,30 +154,31 @@ let arrTestimonios=[]
 let fTestimonios=$.ajax({
     url: "servtest.json",
     success: function (response) {
-        //console.log(respuesta);
-        var idTestimonio = $("#testimonio");
-        $.each(response.Testimonios, function (index, elemento) { 
-            idTestimonio.append(
-                '<div class="testimonio">' +
-                    '<img src=' +elemento.ImagenCliente+ '>'+
-                    '<h2>' +elemento.NombreCliente + '</h2>' +
-                    '<p>' +elemento.Comentario + '<p>' +
-                    '<p>' +elemento.Fecha + '</p>' +
-                '</div>'
-            );
-            arrTestimonios.push(idTestimonio);
-            //console.log(arrTestimonios);
+        $.each(response.Testimonios, function (index, el) { 
+            const article=$('<div>').attr("class", "testimonio");
+            const img=$('<img>').attr('src',el.ImagenCliente);
+            const name=$('<h2>').text(el.NombreCliente);
+            const text=$('<p>').text(el.Comentario);
+            const date=$('<p>').text(el.Fecha).attr('style','text-align:center');
+            let art= $(article)
+            .append(img)
+            .append(name)
+            .append(date)
+            .append(text);
+            arrTestimonios.push(article);
+            console.dir(article);
         });
+        
         function testimonioAleatorio(){
             let randomTestimonios=[];
             for (let i = 0; i < 3; i++) {
                 let random= Math.floor( Math.random() * (arrTestimonios.length));
                 randomTestimonios.push(random);
+                
             }
-            console.dir(randomTestimonios);
             for (let i = 0; i < randomTestimonios.length; i++) {
                 console.log(i);
-                $('#testimonio').prepend(arrTestimonios[randomTestimonios[i]]);
+                $('#testimonio').append(arrTestimonios[randomTestimonios[i]]);
             }
         }
         testimonioAleatorio();
