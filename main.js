@@ -133,7 +133,6 @@ let servicios=
 $(function () {
     //Boton ScrollTop
     $("#subir").click( function(){
-        console.log("esto funciona");
         $("html").animate( {scrollTop: 0}, 3000)
     });
 
@@ -153,6 +152,8 @@ $(function () {
     var vista = 0
     $("#vista").click( function(){
         if (vista == 0){
+            $(".testimonios").fadeOut("slow");
+            $(".testimonios").fadeIn("slow");
             $(".testimonio").css("width", "100%");
             $(".testimonio").css("height", "min-content");
             $(".testimonio").css("display", "flex");
@@ -162,11 +163,20 @@ $(function () {
             $(".comentario").css("width", "50%");
             vista = 1;
         } else{
+            $(".testimonios").fadeOut("slow");
+            $(".testimonios").fadeIn("slow");
             $(".testimonio").css("width", "300px");
             $(".testimonio").css("height", "30rem");
             $(".testimonio").css("display", "inline");
             $(".comentario").css("width", "auto");
             vista = 0;
+        }
+    });
+
+    //Animacion div Testimonios
+    $(window).scroll(function () {
+        if($(window).scrollTop() >= 800 && $(window).scrollTop() <= 1000){
+            $(".testimonios").slideDown("slow");
         }
     });
 });

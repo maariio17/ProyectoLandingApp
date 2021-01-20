@@ -219,6 +219,7 @@ select{
     background-color: orange;
     margin: 0;
     text-align: center;
+    display: none;
 }
 
 #testimonio{
@@ -313,9 +314,9 @@ footer{
 /************TABLET****************/
 @media all and (min-width: 768px) {
     /**Header**/
-    .header{
+    /*.header{
         background: red;
-    }
+    }*/
     .logo-nav-container{
         display: flex;
         justify-content: space-around;
@@ -331,23 +332,16 @@ footer{
         width: 500px;
         height: 500px;
     }
-
-    .vista{
-        width: auto;
-    }
     
-    .comentario{
-        width: auto;
-    }
 }
 
 
 /************DESKTOP****************/
 @media all and (min-width: 1024px) {
     /**Header**/
-    .header{
+    /*.header{
         background: yellow;
-    }
+    }*/
 
     .informacion{
         width: 50%;
@@ -360,6 +354,10 @@ footer{
         position: absolute;
         top: 11%;
         background: none;
+    }
+
+    .comentario{
+        width: auto;
     }
 
 }
