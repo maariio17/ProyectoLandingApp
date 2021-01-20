@@ -175,7 +175,7 @@ $(function () {
 
     //Animacion div Testimonios
     $(window).scroll(function () {
-        if($(window).scrollTop() >= 800 && $(window).scrollTop() <= 1000){
+        if($(window).scrollTop() >= 400 && $(window).scrollTop() <= 500){
             $(".testimonios").slideDown("slow");
         }
     });
