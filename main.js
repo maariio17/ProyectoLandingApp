@@ -152,6 +152,7 @@ $(function () {
         if (vista == 0){
             $(".testimonios").fadeOut("slow");
             $(".testimonios").fadeIn("slow");
+            $(".vistaInicial").attr("class", "vistaHorizontal");
             $(".testimonio").attr("class", "vistaHorizontal");
             $(".comentario").css("width", "50%");
             vista = 1;
@@ -172,13 +173,23 @@ $(function () {
     });
 });
 
+
+/******************************GENERAR TESTIMONIOS******************************************/
 let arrTestimonios=[]
 let fTestimonios=$.ajax({
     url: "servtest.json",
     timeout: '5000',
     success: function (response) {
+        /*vista = 0;
+        if (vista == 0){
+            $(".vistaHorizontal").attr("class","vistaInicial");
+        $(".testimonio").attr("class","vistaInicial");
+        }
+        $(".vistaInicial").remove();
+        $(".vistaHorizontal").remove();
+        $(".testimonio").remove();*/
         $.each(response.Testimonios, function (index, el) {
-            const article=$('<div>').attr("class", "testimonio");
+            const article=$('<div>').attr("class", "vistaInicial");
             const img=$('<img>').attr('src',el.ImagenCliente);
             const name=$('<h2>').text(el.NombreCliente);
             const text=$('<p>').text(el.Comentario).attr("class", "comentario");
@@ -189,25 +200,10 @@ let fTestimonios=$.ajax({
             .append(date)
             .append(text);
             arrTestimonios.push(article);
-            //console.dir(article);
         });
         
         function testimonioAleatorio(){
             let randomTestimonios=[];
-            /*for (let i = 0; i < 3; i++) {
-                let random= Math.floor( Math.random() * (arrTestimonios.length));
-                
-                /*Para Que no se repita div (No funciona correctamente)
-                if (randomTestimonios.includes(random) && random <= 6){
-                    random++;
-                } else if(arrTestimonios.includes()){
-                    random == 0;
-                }*/
-                //randomTestimonios.push(random);
-                //console.log(random);
-                
-            //}
-
             while (randomTestimonios.length < 3){
                 var numeroAleatorio = Math.floor( Math.random() * (arrTestimonios.length));
                 var existe = false;
@@ -230,6 +226,8 @@ let fTestimonios=$.ajax({
         testimonioAleatorio();
         window.setInterval(
             function(){
+                $(".vistaInicial").remove();
+                $(".vistaHorizontal").remove();
                 $(".testimonio").remove();
                 //$(".vistaHorizontal").attr("class", "testimonio");
                 //$(".comentario").css("width", "auto");
@@ -245,8 +243,8 @@ let fTestimonios=$.ajax({
                     console.log("Adios Hola Vista 1");
                     $(".testimonio").remove();
                     $(".vistaHorizontal").remove();
-                    //$(".testimonio").attr("class", ".vistaHorizontal");
-                    //$(".comentario").css("width", "auto");
+                    $(".testimonio").attr("class", ".vistaHorizontal");
+                    $(".comentario").css("width", "auto");
                     testimonioAleatorio();
                     vista = 0;
                 }*/
@@ -259,7 +257,7 @@ let fTestimonios=$.ajax({
     }
 });
 
-
+/******************************************UBICACION ******************************************/
 $(function () {
     // Get user position
     const options = {
@@ -270,12 +268,8 @@ $(function () {
     navigator.geolocation.getCurrentPosition(getCountryName, positionError, options);
 });
 
-/**
- * Print user country to console
- * @param {GeolocationPosition} position User position
- */
 function getCountryName(position) {
-    $.ajax(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&location_type=APPROXIMATE&result_type=country&key=AIzaSyC9tKLdOI8TPGA7qYzevuquEA3Mb-duWNs`)
+    $.ajax(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&location_type=APPROXIMATE&result_type=locality&key=AIzaSyC9tKLdOI8TPGA7qYzevuquEA3Mb-duWNs`)
         .done((response) => {
             console.log(response.results[0].address_components[0].long_name);
         })
@@ -284,10 +278,6 @@ function getCountryName(position) {
         });
 }
 
-/**
- * Manage error in geolocation
- * @param {GeolocationPositionError} error Error in geolocation
- */
 function positionError(error) {
     console.warn(`ERROR(${error.code}): ${error.message}`);
 }

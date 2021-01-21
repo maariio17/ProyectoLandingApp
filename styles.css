@@ -244,6 +244,20 @@ select{
     color: white;
 }
 
+.vistaInicial{
+    display: inline;
+    width: 300px;
+    height: 30rem;
+    margin: 1vw;
+    font-size: medium;
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px solid black;
+    text-align: center;
+    background: black;
+    padding: 5px;
+    color: white;
+}
+
 .vistaHorizontal{
     width: 100%;
     height: min-content;
