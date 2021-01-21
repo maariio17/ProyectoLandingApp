@@ -38,7 +38,6 @@ body{
 
 .navigation ul li{
     display: inline-block;
-    /*width: 100%;*/
 }
 
 .navigation ul li a {
@@ -65,7 +64,6 @@ input{
     font-family: 'Courier New', Courier, monospace;
     margin-right: 5px;
     height: 25px;
-    /*width: 80%;*/
 }
 
 select{
@@ -246,6 +244,55 @@ select{
     color: white;
 }
 
+.vistaHorizontal{
+    width: 100%;
+    height: min-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1vw;
+    font-size: medium;
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px solid black;
+    text-align: center;
+    background: black;
+    padding: 5px;
+    color: white;
+
+}
+
+
+#floating-panel {
+    position: absolute;
+    top: 10px;
+    left: 25%;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #999;
+    text-align: center;
+    font-family: "Roboto", "sans-serif";
+    line-height: 30px;
+    padding-left: 10px;
+  }
+  
+  #floating-panel {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    margin-left: -180px;
+    width: 350px;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #999;
+  }
+  
+  #latlng {
+    width: 225px;
+  }
+
 /*******SCROLL TOP********/
 #subir{
     width:60px;
@@ -301,6 +348,17 @@ footer{
 
 .comentario{
     width: 100%;
+}
+
+.ubicacion{
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.ubicacion > p{
+    padding: 15px;
 }
 
 .redesSociales{

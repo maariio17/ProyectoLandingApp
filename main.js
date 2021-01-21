@@ -109,7 +109,6 @@ let servicios=
     $.ajax({
         url: 'servtest.json',
         success: function(respuesta) {
-            //console.log(respuesta);
             var idServicio = $("#servicio");
             $.each(respuesta.Servicios, function(index, elemento){
                 idServicio.append(
@@ -127,9 +126,10 @@ let servicios=
         error: function() {
             console.log("No se ha podido obtener la información");
         },
-        timeout: '10000'
+        timeout: '5000'
     });
 
+var vista = 0;
 $(function () {
     //Boton ScrollTop
     $("#subir").click( function(){
@@ -143,31 +143,22 @@ $(function () {
     //Animacion div Servicios
     $(window).scroll(function () {
         if($(window).scrollTop() >= 750 || $(window).scrollTop() <= 900){
-            //console.log("Esto si funciona");
             $(".servicios").slideDown("slow");  
         }
     });
 
     //Cambiar Vista Testimonios
-    var vista = 0
     $("#vista").click( function(){
         if (vista == 0){
             $(".testimonios").fadeOut("slow");
             $(".testimonios").fadeIn("slow");
-            $(".testimonio").css("width", "100%");
-            $(".testimonio").css("height", "min-content");
-            $(".testimonio").css("display", "flex");
-            $(".testimonio").css("flex-wrap", "wrap");
-            $(".testimonio").css("justify-content", "space-around");
-            $(".testimonio").css("align-items", "center");
+            $(".testimonio").attr("class", "vistaHorizontal");
             $(".comentario").css("width", "50%");
             vista = 1;
         } else{
             $(".testimonios").fadeOut("slow");
             $(".testimonios").fadeIn("slow");
-            $(".testimonio").css("width", "300px");
-            $(".testimonio").css("height", "30rem");
-            $(".testimonio").css("display", "inline");
+            $(".vistaHorizontal").attr("class", "testimonio");
             $(".comentario").css("width", "auto");
             vista = 0;
         }
@@ -184,8 +175,9 @@ $(function () {
 let arrTestimonios=[]
 let fTestimonios=$.ajax({
     url: "servtest.json",
+    timeout: '5000',
     success: function (response) {
-        $.each(response.Testimonios, function (index, el) { 
+        $.each(response.Testimonios, function (index, el) {
             const article=$('<div>').attr("class", "testimonio");
             const img=$('<img>').attr('src',el.ImagenCliente);
             const name=$('<h2>').text(el.NombreCliente);
@@ -204,6 +196,13 @@ let fTestimonios=$.ajax({
             let randomTestimonios=[];
             for (let i = 0; i < 3; i++) {
                 let random= Math.floor( Math.random() * (arrTestimonios.length));
+                
+                /*Para Que no se repita div (No funciona correctamente)
+                if (randomTestimonios.includes(random) && random <= 6){
+                    random++;
+                } else if(arrTestimonios.includes()){
+                    random == 0;
+                }*/
                 randomTestimonios.push(random);
                 console.log(random);
                 
@@ -214,8 +213,72 @@ let fTestimonios=$.ajax({
             }
         }
         testimonioAleatorio();
+        window.setInterval(
+            function(){
+                $(".testimonio").remove();
+                //$(".vistaHorizontal").attr("class", "testimonio");
+                //$(".comentario").css("width", "auto");
+                testimonioAleatorio();
+
+                /*if (vista == 0){
+                    console.log("Hola Vista 0")
+                    $(".testimonio").remove();
+                    $(".vistaHorizontal").attr("class", "testimonio");
+                    $(".comentario").css("width", "auto");
+                    testimonioAleatorio();
+                } else{
+                    console.log("Adios Hola Vista 1");
+                    $(".testimonio").remove();
+                    $(".vistaHorizontal").remove();
+                    //$(".testimonio").attr("class", ".vistaHorizontal");
+                    //$(".comentario").css("width", "auto");
+                    testimonioAleatorio();
+                    vista = 0;
+                }*/
+                
+            }, 5000);
         
-    },error: function() {
+    },
+    error: function() {
         console.error("No se ha podido obtener la información");
     }
 });
+
+/*************Geolocalizacion ******************/
+function initMap() {
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 8,
+      center: { lat: 40.731, lng: -73.997 },
+    });
+    const geocoder = new google.maps.Geocoder();
+    const infowindow = new google.maps.InfoWindow();
+    document.getElementById("submit").addEventListener("click", () => {
+      geocodeLatLng(geocoder, map, infowindow);
+    });
+  }
+  
+  function geocodeLatLng(geocoder, map, infowindow) {
+    const input = document.getElementById("latlng").value;
+    const latlngStr = input.split(",", 2);
+    const latlng = {
+      lat: parseFloat(latlngStr[0]),
+      lng: parseFloat(latlngStr[1]),
+    };
+    geocoder.geocode({ location: latlng }, (results, status) => {
+      if (status === "OK") {
+        if (results[0]) {
+          map.setZoom(11);
+          const marker = new google.maps.Marker({
+            position: latlng,
+            map: map,
+          });
+          infowindow.setContent(results[0].formatted_address);
+          infowindow.open(map, marker);
+        } else {
+          window.alert("No results found");
+        }
+      } else {
+        window.alert("Geocoder failed due to: " + status);
+      }
+    });
+  }
