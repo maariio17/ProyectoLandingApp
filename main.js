@@ -259,45 +259,35 @@ let fTestimonios=$.ajax({
     }
 });
 
-/*************Geolocalizacion ******************/
-function initMap() {
-    const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 8,
-      center: { lat: 40.731, lng: -73.997 },
-    });
-    const geocoder = new google.maps.Geocoder();
-    const infowindow = new google.maps.InfoWindow();
-    document.getElementById("submit").addEventListener("click", () => {
-      geocodeLatLng(geocoder, map, infowindow);
-    });
-  }
-  
-  function geocodeLatLng(geocoder, map, infowindow) {
-    const input = document.getElementById("latlng").value;
-    const latlngStr = input.split(",", 2);
-    const latlng = {
-      lat: parseFloat(latlngStr[0]),
-      lng: parseFloat(latlngStr[1]),
+
+$(function () {
+    // Get user position
+    const options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
     };
-    geocoder.geocode({ location: latlng }, (results, status) => {
-      if (status === "OK") {
-        if (results[0]) {
-          map.setZoom(11);
-          const marker = new google.maps.Marker({
-            position: latlng,
-            map: map,
-          });
-          infowindow.setContent(results[0].formatted_address);
-          infowindow.open(map, marker);
-        } else {
-          window.alert("No results found");
-        }
-      } else {
-        window.alert("Geocoder failed due to: " + status);
-      }
-    });
-  }
-  
-/*$.getJSON('http://api.wipmania.com/jsonp?callback=?', function (data) {
-  console.log(data.address.continent, data.address.country, data.address.location);
-});*/
+    navigator.geolocation.getCurrentPosition(getCountryName, positionError, options);
+});
+
+/**
+ * Print user country to console
+ * @param {GeolocationPosition} position User position
+ */
+function getCountryName(position) {
+    $.ajax(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&location_type=APPROXIMATE&result_type=country&key=AIzaSyC9tKLdOI8TPGA7qYzevuquEA3Mb-duWNs`)
+        .done((response) => {
+            console.log(response.results[0].address_components[0].long_name);
+        })
+        .fail((error) => {
+            console.warn(error);
+        });
+}
+
+/**
+ * Manage error in geolocation
+ * @param {GeolocationPositionError} error Error in geolocation
+ */
+function positionError(error) {
+    console.warn(`ERROR(${error.code}): ${error.message}`);
+}
