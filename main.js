@@ -194,7 +194,7 @@ let fTestimonios=$.ajax({
         
         function testimonioAleatorio(){
             let randomTestimonios=[];
-            for (let i = 0; i < 3; i++) {
+            /*for (let i = 0; i < 3; i++) {
                 let random= Math.floor( Math.random() * (arrTestimonios.length));
                 
                 /*Para Que no se repita div (No funciona correctamente)
@@ -203,12 +203,27 @@ let fTestimonios=$.ajax({
                 } else if(arrTestimonios.includes()){
                     random == 0;
                 }*/
-                randomTestimonios.push(random);
-                console.log(random);
+                //randomTestimonios.push(random);
+                //console.log(random);
                 
+            //}
+
+            while (randomTestimonios.length < 3){
+                var numeroAleatorio = Math.floor( Math.random() * (arrTestimonios.length));
+                var existe = false;
+
+                for (var i=0; i<randomTestimonios.length; i++){
+                    if (randomTestimonios[i] == numeroAleatorio){
+                        existe = true;
+                        break;
+                    }
+                }
+                if (!existe){
+                    randomTestimonios[randomTestimonios.length] = numeroAleatorio;
+                }
             }
+
             for (let i = 0; i < randomTestimonios.length; i++) {
-                //console.log(i);
                 $('#testimonio').append(arrTestimonios[randomTestimonios[i]]);
             }
         }
@@ -282,3 +297,7 @@ function initMap() {
       }
     });
   }
+  
+/*$.getJSON('http://api.wipmania.com/jsonp?callback=?', function (data) {
+  console.log(data.address.continent, data.address.country, data.address.location);
+});*/
