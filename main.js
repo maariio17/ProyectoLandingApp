@@ -180,14 +180,8 @@ let fTestimonios=$.ajax({
     url: "servtest.json",
     timeout: '5000',
     success: function (response) {
-        /*vista = 0;
-        if (vista == 0){
-            $(".vistaHorizontal").attr("class","vistaInicial");
-        $(".testimonio").attr("class","vistaInicial");
-        }
-        $(".vistaInicial").remove();
-        $(".vistaHorizontal").remove();
-        $(".testimonio").remove();*/
+
+        
         $.each(response.Testimonios, function (index, el) {
             const article=$('<div>').attr("class", "vistaInicial");
             const img=$('<img>').attr('src',el.ImagenCliente);
@@ -222,32 +216,18 @@ let fTestimonios=$.ajax({
             for (let i = 0; i < randomTestimonios.length; i++) {
                 $('#testimonio').append(arrTestimonios[randomTestimonios[i]]);
             }
+            vista = 1;
+                if (vista == 1){
+                    $(".vistaHorizontal").attr("class", "testimonio");
+                    $(".comentario").css("width", "auto");
+                    vista = 0;
+                }
         }
         testimonioAleatorio();
         window.setInterval(
             function(){
-                $(".vistaInicial").remove();
-                $(".vistaHorizontal").remove();
-                $(".testimonio").remove();
-                //$(".vistaHorizontal").attr("class", "testimonio");
-                //$(".comentario").css("width", "auto");
+                $("#testimonio").empty();
                 testimonioAleatorio();
-
-                /*if (vista == 0){
-                    console.log("Hola Vista 0")
-                    $(".testimonio").remove();
-                    $(".vistaHorizontal").attr("class", "testimonio");
-                    $(".comentario").css("width", "auto");
-                    testimonioAleatorio();
-                } else{
-                    console.log("Adios Hola Vista 1");
-                    $(".testimonio").remove();
-                    $(".vistaHorizontal").remove();
-                    $(".testimonio").attr("class", ".vistaHorizontal");
-                    $(".comentario").css("width", "auto");
-                    testimonioAleatorio();
-                    vista = 0;
-                }*/
                 
             }, 5000);
         
@@ -281,3 +261,5 @@ function getCountryName(position) {
 function positionError(error) {
     console.warn(`ERROR(${error.code}): ${error.message}`);
 }
+
+// LA UBICACIÓN AVECES FALLA PERO NO SE EL POR QUE? 
