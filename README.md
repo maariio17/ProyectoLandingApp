@@ -1,25 +1,22 @@
 # ProyectoLandingPage
-Landing Page from hotel T.D.
-Website in production
-This is a landing page project for web design and JS subjects.
+<a href="https://maariio17.github.io/ProyectoLandingPage/"><img src="Imagenes/logo.png" title="Click to demo" align="center"></a>
+# Movie-Search
 
-Photos and video are not mine.
+Web application CinePolis.
 
-Services photos are hotlinked from another sites.
+## Use of the components:
 
-Testimonials photos are created in This Person Does Not Exist.
+* It consists of an input field as a search engine with a button and another to be able to filter it by the date of 
+departure of the movie or series (It is not necessary if you do not want to filter by date, just do not fill in that field)
+* Click on the button to search or press Enter on the input for entrance of films
+* Also when scrolling you can continue to visualize your search above in an attenuated tone
+* It also contains a button on the bottom right to return to the top of the page (if you click on the gif of the millennium falcon (logo) you will get the same result)
 
-Total time in WakaTime
-WakaTime
+## Built With:
 
-Technologies that i used
-Jquery
-CSS/FlexBox
-HTML5
-Methods in Jquery
-Ajax to creating services and testimonials articles.
-Slow animation to scroll into correct section.
-Forward animation for images.
-Geolocation( it's give me lat and long)
-Form validation with events.
+* Makes use of the OMDB api, a database of more than 200,000 movies and series that is constantly updated. You can use it by entering its official website and requesting a free apikey to your email (http://www.omdbapi.com/)
+
+## Authors:
+
+* **Mario López Ruiz** - *DAW project*
 https://maariio17.github.io/ProyectoLandingPage/
