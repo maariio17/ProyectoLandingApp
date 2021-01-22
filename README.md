@@ -22,21 +22,18 @@ unpredictable and impressive elements.ms
 * Form validation will be done through JQuery, not enabling a field until the
 above is filled in correctly.
 * The website must dynamically create the sections of Services / Products and Testimonials. For it
-you must define the JSON file that represents:
-    ** Services: It is a list of services or products offered by the company, where each of
-they will have at least one title, text, and
-image.
-    ** Testimonials: It is a list of testimonials, where each one will have, at least, name, text and
-date.
-
+you must define the JSON file.
 * In the initial loading of the page, said JSON file will be obtained through AJAX and it will be layout
 dynamically. At each moment only 3 random testimonials will be shown, even with more in the
 archive JSON. The user should be given the ability to change the way they are displayed
 these sections
+* Effects should be applied to services / testimonials
+* Every time you change your view the testimonials will have to make an effect to appear / disappear
+* We must also keep track of the origin of visits to the web. We will print the Location by console.
 
 ## Built With:
 
-* Makes use of the OMDB api, a database of more than 200,000 movies and series that is constantly updated. You can use it by entering its official website and requesting a free apikey to your email (http://www.omdbapi.com/)
+* To develop this website, HTML, CSS, javaScript, jQuery and JSON have been used
 
 ## Authors:
 
