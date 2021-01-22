@@ -1,16 +1,50 @@
 # ProyectoLandingPage
 <a href="https://maariio17.github.io/ProyectoLandingPage/"><img src="Imagenes/logo.png" title="Click to demo" align="center" width="124" height="124"></a>
-# Movie-Search
+#Landing Page:
 
-Web application CinePolis.
+This is a landing page project of two subjects, where we have learned to work with html, css, jquery and json.
 
-## Use of the components:
+## Use of the components of design:
 
-* It consists of an input field as a search engine with a button and another to be able to filter it by the date of 
-departure of the movie or series (It is not necessary if you do not want to filter by date, just do not fill in that field)
-* Click on the button to search or press Enter on the input for entrance of films
-* Also when scrolling you can continue to visualize your search above in an attenuated tone
-* It also contains a button on the bottom right to return to the top of the page (if you click on the gif of the millennium falcon (logo) you will get the same result)
+* Mobile first technique.
+* Design for three types of views: mobile, tablet and desktop
+* Layout built with CSS Grid technology, FlexBox
+* Use of multimedia elements: images, audios and / or videos to support title and subtitle
+of your landing page.
+* Simple form that must be validated with JQuery.
+* Typography, iconography and colors appropriate to the content
+* Testimonials / services / products area, made with Grid or FlexBox technology
+* Use of white space: the page should not be overloaded, only the
+unpredictable and impressive elements.ms
+
+## Use of the components of design:
+
+* Mobile first technique.
+* Design for three types of views: mobile, tablet and desktop
+* Layout built with CSS Grid technology, FlexBox
+* Use of multimedia elements: images, audios and / or videos to support title and subtitle
+of your landing page.
+* Simple form that must be validated with JQuery.
+* Typography, iconography and colors appropriate to the content
+* Testimonials / services / products area, made with Grid or FlexBox technology
+* Use of white space: the page should not be overloaded, only the
+unpredictable and impressive elements.ms
+
+##Technical Aspects of the web:
+* Form validation will be done through JQuery, not enabling a field until the
+above is filled in correctly.
+* The website must dynamically create the sections of Services / Products and Testimonials. For it
+you must define the JSON file that represents:
+    ** Services: It is a list of services or products offered by the company, where each of
+they will have at least one title, text, and
+image.
+    ** Testimonials: It is a list of testimonials, where each one will have, at least, name, text and
+date.
+
+-In the initial loading of the page, said JSON file will be obtained through AJAX and it will be layout
+dynamically. At each moment only 3 random testimonials will be shown, even with more in the
+archive JSON. The user should be given the ability to change the way they are displayed
+these sections
 
 ## Built With:
 
@@ -19,4 +53,3 @@ departure of the movie or series (It is not necessary if you do not want to filt
 ## Authors:
 
 * **Mario López Ruiz** - *DAW project*
-https://maariio17.github.io/ProyectoLandingPage/
