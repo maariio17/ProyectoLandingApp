@@ -3,7 +3,7 @@
 
 # Landing Page:
 
-This is a landing page project of two subjects, where we have learned to work with html, css, jquery and json.
+(Click in the logo to visit the web)
 
 ## Use of the components of design:
 
