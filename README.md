@@ -1,5 +1,5 @@
 # ProyectoLandingPage
-<a href="https://maariio17.github.io/ProyectoLandingPage/"><img src="Imagenes/logo.png" title="Click to demo" align="center" width="124" height"124"></a>
+<a href="https://maariio17.github.io/ProyectoLandingPage/"><img src="Imagenes/logo.png" title="Click to demo" align="center" width="124" height="124"></a>
 # Movie-Search
 
 Web application CinePolis.
